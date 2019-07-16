@@ -10,12 +10,16 @@ from selenium import webdriver
 from GDMS.GDMS_control import GDMSControl
 from DATA.config_data_reader import DataReader
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ad9fa975c480da67d428a20779f69481b3b79636
 class GDMSBusiness(GDMSControl):
     def __init__(self, driver):
         self.driver = driver
         GDMSControl.__init__(self.driver)
 
+<<<<<<< HEAD
     def add_dp(self):
         add_device = GDMSControl.login_gdms()
         pass
@@ -39,5 +43,11 @@ class GDMSBusiness(GDMSControl):
            这里的账号测试数据最好使用固定数据，在gdms上预先配置好，方便起见
         '''
         pass
+=======
+
+    def add_dp(self):
+        add_device=GDMSControl.login_gdms()
+
+>>>>>>> ad9fa975c480da67d428a20779f69481b3b79636
 
 

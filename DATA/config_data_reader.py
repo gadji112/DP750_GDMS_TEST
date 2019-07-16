@@ -11,6 +11,7 @@ XLS_FILE = 'config_data.xlsx'
 class DataReader(object):
 
     def __init__(self):
+<<<<<<< HEAD
         self.f = xlrd.open_workbook(XLS_FILE)
 
     def get_dp_num(self):
@@ -20,6 +21,11 @@ class DataReader(object):
             print(e)
 
     def get_gdms_info(self):
+=======
+        pass
+
+    def get_gdms_info():
+>>>>>>> ad9fa975c480da67d428a20779f69481b3b79636
         """获取xls文件中GDMS_Info页签中数据，字典结构
         Args:
           无参数，可直接用DataReader.get_gdms_info()调用
@@ -31,8 +37,13 @@ class DataReader(object):
         """
         try:
             data = {}
+<<<<<<< HEAD
 
             table = self.f.sheet_by_name('GDMS_Info')
+=======
+            f = xlrd.open_workbook(XLS_FILE)
+            table = f.sheet_by_name('GDMS_Info')
+>>>>>>> ad9fa975c480da67d428a20779f69481b3b79636
             for i in range(table.nrows):
                 data[table.cell_value(i, 0)] = table.cell_value(i, 1)
             return data
@@ -41,7 +52,11 @@ class DataReader(object):
         except IOError as e:
             print(e)
 
+<<<<<<< HEAD
     def get_dp_info_by_list(self):
+=======
+    def get_dp_info_by_list():
+>>>>>>> ad9fa975c480da67d428a20779f69481b3b79636
         """获取xls文件中DP_Device_Info页签中数据，二维列表结构
         Args:
           无参数，可直接用DataReader.get_gdms_info()调用
@@ -58,7 +73,12 @@ class DataReader(object):
         """
         try:
             data = []
+<<<<<<< HEAD
             table = self.f.sheet_by_name('DP_Device_Info')
+=======
+            f = xlrd.open_workbook(XLS_FILE)
+            table = f.sheet_by_name('DP_Device_Info')
+>>>>>>> ad9fa975c480da67d428a20779f69481b3b79636
             for i in range(table.nrows):
                 data.append(table.row_values(i))
             return data
@@ -67,6 +87,7 @@ class DataReader(object):
         except IOError as e:
             print(e)
 
+<<<<<<< HEAD
     def get_dp_info_via_index(self, index=0):
         '''
         :param index:
@@ -77,6 +98,9 @@ class DataReader(object):
         return self.get_dp_info_by_list()[index]
 
     def get_dp_mac_as_list(self, index=0):
+=======
+    def get_dp_mac_as_list(index=0):
+>>>>>>> ad9fa975c480da67d428a20779f69481b3b79636
         """
         按index索引获取设备列表中第index+1台设备的MAC地址
         Args:
@@ -86,7 +110,11 @@ class DataReader(object):
         Returns:
             list返回mac地址各段
         """
+<<<<<<< HEAD
         tmp_list = DataReader.get_dp_info_by_list(self)
+=======
+        tmp_list = DataReader.get_dp_info_by_list()
+>>>>>>> ad9fa975c480da67d428a20779f69481b3b79636
         try:
             return str(tmp_list[index][4]).split(':')
         except IndexError as e:
@@ -94,7 +122,11 @@ class DataReader(object):
         except IOError as e:
             print(e)
 
+<<<<<<< HEAD
     def get_gdms_p_value_config(self):
+=======
+    def get_gdms_p_value_config():
+>>>>>>> ad9fa975c480da67d428a20779f69481b3b79636
         """
         获取gdms上预设的P值配置文件
         Args:
@@ -108,6 +140,7 @@ class DataReader(object):
         tmp_str = tmp_file.readlines()
         return tmp_str
 
+<<<<<<< HEAD
     def get_dut_info_as_list(self):
         dut_info_list = []
         for i in range(self.f.sheet_by_name('DP_Device_Info').nrows):
@@ -140,3 +173,11 @@ if __name__ == '__main__':
 
     # for i in DataReader().get_dut_info_as_list():
     #   print(i.dut_ip)
+=======
+
+if __name__ == '__main__':
+    print(DataReader.get_gdms_info().keys())
+    print(DataReader.get_dp_info_by_list())
+    print(DataReader.get_dp_mac_as_list(0))
+    print(DataReader.get_gdms_p_value_config())
+>>>>>>> ad9fa975c480da67d428a20779f69481b3b79636

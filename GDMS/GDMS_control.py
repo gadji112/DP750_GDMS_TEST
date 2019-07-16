@@ -36,6 +36,7 @@ class GDMSControl(PublicDPControl):
         u"""切换到diagnostics菜单"""
         self.driver.find_element_by_css_selector('.collapsed > .el-menu-item:nth-child(7)').click()
 
+<<<<<<< HEAD
     def switch_to_model(self):
         u'''切换到型号页面'''
         pass
@@ -49,13 +50,23 @@ class GDMSControl(PublicDPControl):
         pass
 
 
+=======
+>>>>>>> ad9fa975c480da67d428a20779f69481b3b79636
 
 if __name__ == '__main__':
     driver = webdriver.Chrome()
     test = GDMSControl(driver)
+<<<<<<< HEAD
     test.login_gdms('lshuai@grandstream.cn', '123456gs')
     test.switch_to_device_list()
     test.switch_to_diagnostics()
     test.login_dp('test_public_control', 'psw')
     # driver.quit()
 
+=======
+    test.login_gdms('lshuai@grandstream.cn','123456gs')
+    test.switch_to_device_list()
+    test.switch_to_diagnostics()
+    test.login_dp('test_public_control','psw')
+    #driver.quit()
+>>>>>>> ad9fa975c480da67d428a20779f69481b3b79636
